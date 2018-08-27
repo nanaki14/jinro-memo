@@ -1,6 +1,10 @@
 # jinro-memo
 
 > A Vue.js project
+人狼ゲームのメモツールです。
+行き詰まっているのでアドバイスをお願い申し上げます(‘､3_ヽ)_
+完成予想図をXDで制作していますので見てみてください。（動作に関してコメントで補足しています）
+[https://xd.adobe.com/view/f16e731b-840f-4dda-4090-9f4b9d6488c0-875f/](https://xd.adobe.com/view/f16e731b-840f-4dda-4090-9f4b9d6488c0-875f/)
 
 ## Build Setup
 
