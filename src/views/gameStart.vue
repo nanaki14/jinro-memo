@@ -19,6 +19,11 @@ export default {
   },
   computed: {
     players () { return this.$store.getters.players }
+  },
+  created () {
+    if (this.players.length === 0) {
+      this.$router.push('/')
+    }
   }
 }
 </script>

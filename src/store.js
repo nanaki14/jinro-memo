@@ -8,11 +8,21 @@ const store = new Vuex.Store({
     img: 1,
     nextId: 0,
     players: [
+    ],
+    days: [
+      {
+        execution: '',
+        miserable: '',
+        others: ''
+      }
     ]
   },
   getters: {
     players (state) {
       return state.players
+    },
+    days (state) {
+      return state.days
     },
     id (state) {
       return state.nextId
@@ -46,6 +56,16 @@ const store = new Vuex.Store({
     // statusの編集
     changeStatus (state, {index, status}) {
       state.players[index].status = status
+    },
+    addDays (state, {index}) {
+      state.days.splice(index, 0, {
+        execution: '',
+        miserable: '',
+        others: ''
+      })
+    },
+    setDays (state, {day, status, player}) {
+      state.days[day][status] = player
     }
   },
   actions: {
@@ -63,6 +83,12 @@ const store = new Vuex.Store({
     },
     changeStatus ({ commit }, {index, status}) {
       commit('changeStatus', {index, status: status})
+    },
+    addDays ({ commit }, {index}) {
+      commit('addDays', {index})
+    },
+    setDays ({ commit }, {day, status, player}) {
+      commit('setDays', {day, status, player})
     }
   }
 })

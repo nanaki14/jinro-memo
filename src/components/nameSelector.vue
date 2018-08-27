@@ -12,8 +12,8 @@
     </div>
     <div v-else>
       <div class="bl_nameSelect_img">
-        <img :src="'/static/img/' + players[selectedIndex].status + '.png'" alt="players[selectedIndex].status" class="bl_nameSelect_img_status">
-        <img :src="['/static/img/user' + players[selectedIndex].img + '.jpg']" alt="">
+        <img :src="`/static/img/${players[selectedIndex].status}.png`" alt="players[selectedIndex].status" class="bl_nameSelect_img_status">
+        <img :src="`/static/img/user${players[selectedIndex].img}.jpg`" alt="">
       </div>
       {{players[selectedIndex].name}}
     </div>
@@ -24,7 +24,10 @@
 <script>
 export default {
   name: 'nameSelector',
-  props: ['status'],
+  props: {
+    status: String,
+    dayCount: Number
+  },
   computed: {
     players () { return this.$store.getters.players },
     selectedItem: function selectedItem () {
@@ -46,6 +49,8 @@ export default {
         this.show = false
       } else {
         this.$store.dispatch('changeStatus', {index: this.selectedIndex, status: this.status})
+        this.$store.dispatch('setDays', {day: this.dayCount, status: this.status, player: this.selectedItem.name})
+        this.$emit('input', true)
         this.show = false
       }
     },
@@ -55,6 +60,7 @@ export default {
         this.selected = ''
       } else {
         this.$store.dispatch('changeStatus', {index: this.selectedIndex, status: 'survival'})
+        this.$store.dispatch('setDays', {day: this.dayCount, status: this.status, player: ''})
         this.show = true
         this.selected = ''
       }

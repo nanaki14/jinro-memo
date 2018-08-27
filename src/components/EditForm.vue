@@ -7,19 +7,19 @@
 </template>
 
 <script>
-import store from '../store';
+import store from '../store'
 export default {
   name: 'EditForm',
   computed: {
-    message(){ return this.$store.getters.message },
+    message () { return this.$store.getters.message },
     message2: {
-    get(){ return store.getters.message },
-    set(value) { store.dispatch('doUpdate', value)}
+      get () { return store.getters.message },
+      set (value) { store.dispatch('doUpdate', value) }
     }
   },
   methods: {
-    doUpdate(){
-      this.$store.dispatch('doUpdate',this.$refs.input.value)
+    doUpdate () {
+      this.$store.dispatch('doUpdate', this.$refs.input.value)
     }
   }
 }

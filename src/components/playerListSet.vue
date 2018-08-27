@@ -4,7 +4,7 @@
     <button class="el_closeButton" @click="playerRemove(index)"><i class="fas fa-times">X</i></button>
     <div>
       <figure>
-        <img v-bind:src="['/static/img/user' + player.img + '.jpg']" alt="">
+        <img v-bind:src="`/static/img/user${player.img}.jpg`" alt="">
       </figure>
       <div v-if="player.edit">
         <input v-model="newName"

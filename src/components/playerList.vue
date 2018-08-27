@@ -4,10 +4,10 @@
     <div class="bl_nameBlock">
       <div class="bl_nameBlock_img">
         <figure class="bl_nameBlock_img_status">
-          <img :src="'/static/img/' + player.status + '.png'" :alt="player.status" class="bl_nameBlock_statusImg">
+          <img :src="`/static/img/${player.status}.png`" :alt="player.status" class="bl_nameBlock_statusImg">
         </figure>
         <figure class="bl_nameBlock_img_user">
-          <img v-bind:src="['/static/img/user' + player.img + '.jpg']" alt="">
+          <img v-bind:src="`/static/img/user${player.img}.jpg`" alt="">
         </figure>
       </div>
       <p>{{ player.name }}</p>
@@ -21,8 +21,6 @@ export default {
   name: 'playerListSet',
   computed: {
     players () { return this.$store.getters.players }
-  },
-  methods: {
   }
 }
 </script>
