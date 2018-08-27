@@ -6,7 +6,7 @@
   <!-- nameの入力 -->
   <playerListSet />
   <!-- playerの一覧と編集 -->
-  <router-link to="/game-start">{{ players.length }}人でゲームを始める</router-link>
+  <button type="button" @click="hundleClick">{{ players.length }}人でゲームを始める</button>
 </div>
 </template>
 
@@ -23,6 +23,15 @@ export default {
   },
   computed: {
     players () { return this.$store.getters.players }
+  },
+  methods: {
+    hundleClick () {
+      if (this.$store.getters.players.length > 1) {
+        this.$router.push('/game-start')
+      } else {
+        alert('プレイヤーは２人以上必要だよね')
+      }
+    }
   }
 }
 </script>
